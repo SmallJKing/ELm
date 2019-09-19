@@ -4,35 +4,6 @@ const semver = require('semver')
 const packageConfig = require('../package.json')
 const shell = require('shelljs')
 
-var appData = require('../data.json')
-var seller = appData.seller;
-var goods = appData.goods;
-var ratings = appData.ratings;
-
-var apiRoutes = express.Router();
-apiRoutes.get('/seller',function(req, res){
-   res.json({
-     errno: 0,
-     data: seller
-   });
-});
-
-apiRoutes.get('/goods',function(req, res){
-  res.json({
-    errno: 0,
-    data: goods
-  });
-});
-
-apiRoutes.get('/ratings',function(req, res){
-  res.json({
-    errno: 0,
-    data: ratings
-  });
-});
-
-app.use('/api',apiRoutes);
-
 function exec (cmd) {
   return require('child_process').execSync(cmd).toString().trim()
 }
